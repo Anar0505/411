@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Günün Mübarək!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff6b6b, #f7b733, #ffcc33);
+            animation: gradient 10s ease infinite;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            animation: bounce 2s infinite;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            transition: opacity 0.5s ease;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .message {
+            font-size: 1.5em;
+            white-space: normal; /* Mesajı normalde kaydırma yerine satırlara ayır */
+            margin: 20px auto;
+            line-height: 1.5;
+            padding: 0 10%;
+        }
+
+        .button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .message {
+                font-size: 1.2em;
+                padding: 0 5%;
+            }
+
+            .button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Doğum Günün Mübarək, Aysun!</h1>
+    
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="./img/indir.jpeg" alt="Görsel 1"></div>
+            <div class="slide"><img src="./img/OIP.jpeg" alt="Görsel 2"></div>
+            <div class="slide"><img src="./img/OIP (1).jpeg" alt="Görsel 3"></div>
+        </div>
+    </div>
+
+    <div class="message">Bu gün sənin günündür! Həyatında ən gözəl anlar səninlə olsun. Sənin dostların və ailən hər zaman yanında olacaq. Hər yeni yaşında, daha da gözəl xatirələr biriktirəsən. Xoşbəxt illərə, dostum!</div>
+    <button class="button" onclick="alert('Təbriklər! 🎉')">Təbrik Et!</button>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlides() {
+            for (let i = 0; i < totalSlides; i++) {
+                slides[i].style.display = 'none';  
+            }
+            index++;
+            if (index >= totalSlides) { index = 0; }    
+            slides[index].style.display = 'block';  
+            setTimeout(showSlides, 3000); // 3 saniye sonra sonraki slayta geç
+        }
+
+        showSlides();
+    </script>
+</body>
+</html>
+
